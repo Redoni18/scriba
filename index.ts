@@ -1,5 +1,6 @@
-import { JobScheduler } from './src/services/JobScheduler'
+import { NewsFetcher } from './src/services/NewsFetcher';
 
-const jobScheduler = new JobScheduler()
-jobScheduler.start()
-
+export async function fetchLatestNews() {
+    const newsFetcher = new NewsFetcher();
+    await newsFetcher.fetchLatestNews();
+}
