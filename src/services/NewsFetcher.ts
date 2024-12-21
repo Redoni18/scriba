@@ -1,9 +1,9 @@
 import { PrismaClient, Article, NewsSource } from '@prisma/client';
-import { AuthorFetcher } from './AuthorFetcher';
-import { CategoryFetcher } from './CategoryFetcher';
-import { TagFetcher } from './TagFetcher';
-import { MediaFetcher } from './MediaFetcher';
-import { BaseFetcher } from './BaseFetcher';
+import { AuthorFetcher } from '@/services/AuthorFetcher';
+import { CategoryFetcher } from '@/services/CategoryFetcher';
+import { TagFetcher } from '@/services/TagFetcher';
+import { MediaFetcher } from '@/services/MediaFetcher';
+import { BaseFetcher } from '@/services/BaseFetcher';
 
 const NEWS_SITES = [
   'telegrafi.com',

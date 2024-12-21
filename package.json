@@ -1,24 +1,24 @@
 {
   "name": "scriba-news-aggregator",
+  "version": "1.0.0",
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "start": "bun run index.ts",
     "dev": "bun run --watch index.ts",
+    "build": "bun build ./index.ts --outdir ./out --target node",
+    "start": "bun run ./out/index.js",
     "prisma:generate": "bunx prisma generate",
-    "prisma:push": "bunx prisma db push",
-    "bun:build": "bun build ./index.ts --outdir ./out"
+    "prisma:push": "bunx prisma db push"
   },
   "devDependencies": {
     "bun-types": "latest",
-    "prisma": "^6.1.0"
+    "prisma": "^5.4.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.1.0",
-    "pino": "^9.5.0",
-    "pino-pretty": "^13.0.0"
+    "@prisma/client": "^5.4.2"
   }
 }
+

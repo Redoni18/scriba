@@ -1,5 +1,5 @@
 import { PrismaClient, Category, NewsSource } from '@prisma/client';
-import { BaseFetcher } from './BaseFetcher';
+import { BaseFetcher } from '@/services/BaseFetcher';
 
 export class CategoryFetcher extends BaseFetcher {
   private prisma: PrismaClient;

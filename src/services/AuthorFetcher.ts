@@ -1,5 +1,5 @@
 import { PrismaClient, Author, NewsSource } from '@prisma/client';
-import { BaseFetcher } from './BaseFetcher';
+import { BaseFetcher } from '@/services/BaseFetcher';
 
 export class AuthorFetcher extends BaseFetcher {
   private prisma: PrismaClient;

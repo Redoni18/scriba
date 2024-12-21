@@ -1,5 +1,5 @@
 import { PrismaClient, Tag, NewsSource } from '@prisma/client';
-import { BaseFetcher } from './BaseFetcher';
+import { BaseFetcher } from '@/services/BaseFetcher';
 
 export class TagFetcher extends BaseFetcher {
   private prisma: PrismaClient;

@@ -1,5 +1,5 @@
 import { NewsSource } from '@prisma/client';
-import { BaseFetcher } from './BaseFetcher';
+import { BaseFetcher } from '@/services/BaseFetcher';
 
 export class MediaFetcher extends BaseFetcher {
   async fetchFeaturedMedia(newsSource: NewsSource, featuredMediaId: number): Promise<string | null> {
