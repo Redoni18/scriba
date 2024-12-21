@@ -1,18 +1,31 @@
-import { fetchLatestNews } from '../index';
+import { NewsFetcher } from '../src/services/NewsFetcher';
 
-export default async function handler(req: any, res: any) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+export default async function handler(req: Request) {
+  console.log('Cron job triggered: /api/fetchNews');
+
+  if (req.method !== 'GET' && req.method !== 'POST') {
+    console.log('Invalid method:', req.method);
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+      status: 405,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 
+  const newsFetcher = new NewsFetcher()
   try {
     console.log('Starting news fetch job');
-    await fetchLatestNews();
+    await newsFetcher.fetchLatestNews();
     console.log('Finished fetching and saving news');
-    return res.status(200).json({ message: 'News fetch completed successfully' });
+    return new Response(JSON.stringify({ message: 'News fetch completed successfully' }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error) {
     console.error('Error fetching and saving news:', error);
-    return res.status(500).json({ error: 'Failed to fetch news' });
+    return new Response(JSON.stringify({ error: 'Failed to fetch news', details: error }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
 
