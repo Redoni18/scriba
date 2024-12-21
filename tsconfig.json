@@ -13,12 +13,14 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "types": [
-      "bun-types"
+      "bun-types",
+      "node"
     ],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "outDir": "dist"
   },
   "include": ["index.ts", "src/**/*.ts", "api/**/*.ts"],
   "exclude": ["node_modules"]
