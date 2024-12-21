@@ -5,20 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --watch index.ts",
-    "build": "bun build ./index.ts --outdir ./out --target node",
-    "start": "bun run ./out/index.js",
+    "build": "bun build ./index.ts --outdir ./dist --target node",
+    "start": "node dist/index.js",
     "prisma:generate": "bunx prisma generate",
     "prisma:push": "bunx prisma db push"
   },
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "bun-types": "latest",
-    "prisma": "^5.4.2"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "prisma": "^5.4.2",
+    "typescript": "latest"
   },
   "dependencies": {
     "@prisma/client": "^5.4.2"
   }
 }
-
