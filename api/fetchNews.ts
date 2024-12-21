@@ -1,4 +1,4 @@
-import { NewsFetcher } from '../src/services/NewsFetcher';
+import { fetchLatestNews } from '../index';
 
 export default async function handler(req: Request) {
   console.log('Cron job triggered: /api/fetchNews');
@@ -11,10 +11,9 @@ export default async function handler(req: Request) {
     });
   }
 
-  const newsFetcher = new NewsFetcher()
   try {
     console.log('Starting news fetch job');
-    await newsFetcher.fetchLatestNews();
+    await fetchLatestNews();
     console.log('Finished fetching and saving news');
     return new Response(JSON.stringify({ message: 'News fetch completed successfully' }), {
       status: 200,
